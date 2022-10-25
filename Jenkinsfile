@@ -14,12 +14,11 @@ pipeline {
         stage ("deployment") {
             steps {
                 sshagent(['af798cd6-93d4-400b-88c0-6a1bd34f14a2']) {
-                    sh 'scp -o StrictHostKeyChecking=no webapp/target/webapp.war ubuntu@3.91.242.178:/opt/docker'
-                    sh 'docker stop valaxy_demo'
-                    sh 'docker rm -f valaxy_demo'
-                    sh 'docker image rm -f valaxy_demo'
-                    sh 'cd /opt/docker'
-                    sh 'docker build -t valaxy_demo .'
+                    sh 'scp -o StrictHostKeyChecking=no webapp/target/webapp.war ubuntu@3.91.242.178:/opt/docker'docker stop valaxy_demo;                  docker rm -f valaxy_demo;
+docker image rm -f valaxy_demo;
+cd /opt/docker;
+docker build -t valaxy_demo .
+                    
                 } 
             }
         }
